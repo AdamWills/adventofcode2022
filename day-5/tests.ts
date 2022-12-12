@@ -1,12 +1,12 @@
 import { assertEquals } from "https://deno.land/std@0.157.0/testing/asserts.ts";
 import {
-  parseStackLine,
-  parseProcedureLine,
-  parseFile,
-  transformStacks,
   applyProcedure,
-  getTopCrates,
   calculateTopCratesFromInput,
+  getTopCrates,
+  parseFile,
+  parseProcedureLine,
+  parseStackLine,
+  transformStacks,
 } from "./utils.ts";
 
 Deno.test("parse line", () => {

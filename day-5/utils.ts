@@ -20,7 +20,7 @@ const parseProcedureLine = (line: string): Procedure => {
 };
 
 const parseFile = (
-  input: string
+  input: string,
 ): { stacks: string[][]; procedures: Procedure[] } => {
   const lines = input.split(/\r?\n/);
   const stacks = lines
@@ -59,7 +59,7 @@ const transformStacks = (stacks: string[][]): string[][] => {
 const applyProcedure = (
   stacks: string[][],
   procedure: Procedure,
-  supportsMultiplePieces = false
+  supportsMultiplePieces = false,
 ): string[][] => {
   const { pieces, from, to } = procedure;
   if (supportsMultiplePieces) {
@@ -82,24 +82,24 @@ const getTopCrates = (stacks: string[][]): string => {
 
 const calculateTopCratesFromInput = (
   input: string,
-  supportsMultiplePieces = false
+  supportsMultiplePieces = false,
 ): string => {
   const { stacks, procedures } = parseFile(input);
   const transformedStacks = transformStacks(stacks);
   const appliedProcedures = procedures.reduce(
     (stacks, procedure) =>
       applyProcedure(stacks, procedure, supportsMultiplePieces),
-    transformedStacks
+    transformedStacks,
   );
   return getTopCrates(appliedProcedures);
 };
 
 export {
   applyProcedure,
-  parseStackLine,
-  parseProcedureLine,
-  parseFile,
-  transformStacks,
-  getTopCrates,
   calculateTopCratesFromInput,
+  getTopCrates,
+  parseFile,
+  parseProcedureLine,
+  parseStackLine,
+  transformStacks,
 };
