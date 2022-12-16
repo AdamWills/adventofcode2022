@@ -22,7 +22,7 @@ const assertHeadAndTail = (
   head: Head,
   tail: Tail,
   expectedHead: coords,
-  expectedTail: coords
+  expectedTail: coords,
 ) => {
   assertEquals(head.x, expectedHead.x);
   assertEquals(head.y, expectedHead.y);
